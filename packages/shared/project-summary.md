@@ -58,9 +58,9 @@ The taxonomy point is load-bearing: the Brain plan warns that sequence and timin
 - ✅ **L3** flash-card session UI.
 - ✅ **L4** AI teacher integration.
 
-**Track B (Brain foundation)** — B1 first, then it unblocks B2/B3:
+**Track B (Brain foundation)** ✅ COMPLETED — B1 first, then it unblocks B2/B3:
 - ✅ **B1** learner-state schema.
-- **B4** event capture implementation.
+- ✅ **B4** event capture implementation.
 
 **Track C (Brain pre-user validation)** — fully independent of the Loop UI; needs only the concept model and taxonomy from Wave 0:
 - **B5 → B6 → B7** (a strict chain: generator, then harness/A/A, then pattern recovery).
