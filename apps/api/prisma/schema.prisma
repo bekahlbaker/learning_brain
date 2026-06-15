@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  phone     String   @unique
+  name      String
+  createdAt DateTime @default(now())
+
+  profile           LearnerProfile?
+  onboardingAnswers OnboardingAnswers?
+  lessonMastery     LessonMastery[]
+
+  @@map("users")
+}
+
+model LearnerProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  personaId        String?
+  teachingTone     String
+  explanationDepth String
+  overallMastery   Int      @default(0)
+  currentLevelId   String?
+  currentLessonId  String?
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("learner_profiles")
+}
+
+model LessonMastery {
+  id                 String    @id @default(uuid())
+  userId             String
+  lessonId           String
+  score              Int       @default(0)
+  correctOnFirstTry  Int       @default(0)
+  correctAfterHint   Int       @default(0)
+  correctAfterReview Int       @default(0)
+  incorrect          Int       @default(0)
+  totalAttempts      Int       @default(0)
+  lastAttemptAt      DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_mastery")
+}
+
+model OnboardingAnswers {
+  id      String @id @default(uuid())
+  userId  String @unique
+  answers Json
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("onboarding_answers")
+}
