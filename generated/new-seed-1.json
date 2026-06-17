@@ -1,0 +1,129 @@
+{
+  "personaId": "new",
+  "seed": 1,
+  "simulatedDays": 1,
+  "startDate": "2026-06-15",
+  "generatedAt": "2026-06-16T00:00:00.000Z",
+  "summary": {
+    "activeDays": 1,
+    "totalSessions": 1,
+    "totalLessons": 0,
+    "totalEvents": 9,
+    "finalOverallMastery": 0,
+    "lessonMastery": {}
+  },
+  "events": [
+    {
+      "eventId": "sim_new_000001",
+      "userId": "sim_new",
+      "sessionId": null,
+      "timestamp": "2026-06-15T19:00:00.000Z",
+      "clientTimestamp": "2026-06-15T19:00:00.000Z",
+      "sequenceNumber": 1,
+      "kind": "app_opened",
+      "source": "direct",
+      "notificationId": null,
+      "minutesSinceLastOpen": null,
+      "localHourOfDay": 19,
+      "localDayOfWeek": 0
+    },
+    {
+      "eventId": "sim_new_000002",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:00.000Z",
+      "clientTimestamp": "2026-06-15T19:00:00.000Z",
+      "sequenceNumber": 2,
+      "kind": "session_started",
+      "resumedFromLessonId": "lesson-1-1"
+    },
+    {
+      "eventId": "sim_new_000003",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:00.000Z",
+      "clientTimestamp": "2026-06-15T19:00:00.000Z",
+      "sequenceNumber": 3,
+      "kind": "level_started",
+      "levelId": "level-1",
+      "isRestart": false
+    },
+    {
+      "eventId": "sim_new_000004",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:00.000Z",
+      "clientTimestamp": "2026-06-15T19:00:00.000Z",
+      "sequenceNumber": 4,
+      "kind": "lesson_started",
+      "lessonId": "lesson-1-1",
+      "levelId": "level-1",
+      "isRevisit": false,
+      "directiveInEffect": null
+    },
+    {
+      "eventId": "sim_new_000005",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:34.781Z",
+      "clientTimestamp": "2026-06-15T19:00:34.781Z",
+      "sequenceNumber": 5,
+      "kind": "lesson_content_viewed",
+      "lessonId": "lesson-1-1",
+      "levelId": "level-1",
+      "contentType": "text",
+      "viewDurationMs": 34781
+    },
+    {
+      "eventId": "sim_new_000006",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:34.781Z",
+      "clientTimestamp": "2026-06-15T19:00:34.781Z",
+      "sequenceNumber": 6,
+      "kind": "question_shown",
+      "lessonId": "lesson-1-1",
+      "levelId": "level-1",
+      "questionFormat": "multiple_choice",
+      "attemptNumber": 1
+    },
+    {
+      "eventId": "sim_new_000007",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:34.781Z",
+      "clientTimestamp": "2026-06-15T19:00:34.781Z",
+      "sequenceNumber": 7,
+      "kind": "lesson_abandoned",
+      "lessonId": "lesson-1-1",
+      "levelId": "level-1",
+      "reason": "session_ended",
+      "timeInLessonMs": 34781,
+      "reachedQuestion": true
+    },
+    {
+      "eventId": "sim_new_000008",
+      "userId": "sim_new",
+      "sessionId": "sim_sess_new_0000",
+      "timestamp": "2026-06-15T19:00:34.781Z",
+      "clientTimestamp": "2026-06-15T19:00:34.781Z",
+      "sequenceNumber": 8,
+      "kind": "session_ended",
+      "durationMs": 34781,
+      "reason": "abandoned",
+      "lessonsAttempted": 1,
+      "lessonsCompleted": 0,
+      "overallMasteryAtEnd": 0
+    },
+    {
+      "eventId": "sim_new_000009",
+      "userId": "sim_new",
+      "sessionId": null,
+      "timestamp": "2026-06-15T19:00:34.781Z",
+      "clientTimestamp": "2026-06-15T19:00:34.781Z",
+      "sequenceNumber": 9,
+      "kind": "app_backgrounded",
+      "foregroundDurationMs": 34781
+    }
+  ]
+}

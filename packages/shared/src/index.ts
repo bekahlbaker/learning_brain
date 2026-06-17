@@ -1,4 +1,6 @@
 export * from './types/brain'
+export * from './types/curriculum'
 export * from './types/onboarding'
 export * from './types/events'
+export * from './constants/curriculum'
 export * from './constants/personas'

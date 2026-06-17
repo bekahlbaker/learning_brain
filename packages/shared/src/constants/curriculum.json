@@ -1,0 +1,600 @@
+{
+    "curriculum": {
+        "id": "food-safety-essentials",
+        "title": "Food Safety Essentials for Restaurant Staff",
+        "description": "An interactive food safety course for servers and cooks, aligned with the US FDA Food Code (2022) and ServSafe conventions. Questions are original and drafted from the public standard.",
+        "standard": "US FDA Food Code (2022), ServSafe-aligned",
+        "version": "1.0",
+        "answerEncoding": {
+            "multiple_choice": "question.correctOptionId references the id of the correct entry in question.options",
+            "true_false": "question.correctAnswer is a boolean"
+        },
+        "levels": [
+            {
+                "id": "level-1",
+                "order": 1,
+                "title": "Foundations of Food Safety",
+                "description": "Core concepts every food handler must know: hazardous foods, temperature, hygiene, and illness reporting.",
+                "lessons": [
+                    {
+                        "id": "lesson-1-1",
+                        "order": 1,
+                        "title": "What Are TCS Foods?",
+                        "content": {
+                            "type": "text",
+                            "body": "Some foods support the rapid growth of bacteria and require careful time and temperature control. These are called TCS foods (Time/Temperature Control for Safety). They tend to be moist and rich in protein or starch. Examples include milk and dairy, eggs, meat, poultry, fish and shellfish, cooked rice and beans, baked potatoes, tofu, sprouts, cut leafy greens, cut tomatoes, and cut melons. Foods that are dry, very acidic, or very high in sugar or salt generally do not support this kind of growth."
+                        },
+                        "hint": "Think about which food, once cut or cooked, becomes moist and supports rapid bacterial growth.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "Which of the following is a TCS food that requires temperature control?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "Uncooked dry rice"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "Cut cantaloupe"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "Whole intact lemons"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "Granulated sugar"
+                                }
+                            ],
+                            "correctOptionId": "b"
+                        }
+                    },
+                    {
+                        "id": "lesson-1-2",
+                        "order": 2,
+                        "title": "The Temperature Danger Zone",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-1-2/600/400",
+                            "imageAlt": "A food thermometer graphic highlighting the temperature range in which bacteria multiply most rapidly."
+                        },
+                        "hint": "The lower bound matches the maximum cold-holding temperature, and the upper bound matches the minimum hot-holding temperature.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "According to the FDA Food Code, what is the temperature danger zone?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "32\u00b0F to 100\u00b0F"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "41\u00b0F to 135\u00b0F"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "0\u00b0F to 212\u00b0F"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "50\u00b0F to 140\u00b0F"
+                                }
+                            ],
+                            "correctOptionId": "b"
+                        }
+                    },
+                    {
+                        "id": "lesson-1-3",
+                        "order": 3,
+                        "title": "Proper Handwashing",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-1-3/600/400",
+                            "imageAlt": "A step-by-step handwashing sequence: wet hands with warm water, apply soap, scrub thoroughly, rinse, and dry with a single-use towel."
+                        },
+                        "hint": "Think about how long the whole process should take \u2014 closer to the length of a short song than a quick splash of water.",
+                        "question": {
+                            "type": "true_false",
+                            "prompt": "The entire handwashing process, including scrubbing with soap, should take at least 20 seconds.",
+                            "correctAnswer": true
+                        }
+                    },
+                    {
+                        "id": "lesson-1-4",
+                        "order": 4,
+                        "title": "Reporting Illness",
+                        "content": {
+                            "type": "text",
+                            "body": "Food handlers can transfer pathogens to food when they are sick. Certain symptoms cannot be managed with handwashing alone and require the employee to stop working with food. Staff who have vomiting, diarrhea, jaundice (yellowing of the skin or eyes), or a sore throat with fever should report it to their manager and be excluded or restricted from food handling. Managers must also know which serious illnesses require reporting to the local health authority."
+                        },
+                        "hint": "Some symptoms aren't manageable with hygiene alone \u2014 they require staying away from food entirely.",
+                        "question": {
+                            "type": "true_false",
+                            "prompt": "A food handler who is experiencing vomiting or diarrhea may keep working as long as they wash their hands frequently.",
+                            "correctAnswer": false
+                        }
+                    }
+                ],
+                "review": {
+                    "id": "review-1",
+                    "title": "Level 1 Review",
+                    "description": "A general recap of foundational concepts: hazardous foods, temperature, hygiene, and illness.",
+                    "lessons": [
+                        {
+                            "id": "review-1-1",
+                            "order": 1,
+                            "title": "Why Temperature Control Matters",
+                            "content": {
+                                "type": "text",
+                                "body": "Keeping TCS foods out of the temperature danger zone is one of the most important things a kitchen can do. The danger zone is the range where bacteria multiply fastest, so limiting the time food spends there directly reduces the risk of foodborne illness."
+                            },
+                            "hint": "Bacteria multiply fastest within a specific temperature range.",
+                            "question": {
+                                "type": "multiple_choice",
+                                "prompt": "Why is it important to keep TCS foods out of the temperature danger zone?",
+                                "options": [
+                                    {
+                                        "id": "a",
+                                        "text": "It improves the flavor of the food"
+                                    },
+                                    {
+                                        "id": "b",
+                                        "text": "It slows or limits the growth of pathogens"
+                                    },
+                                    {
+                                        "id": "c",
+                                        "text": "It is required for stock rotation"
+                                    },
+                                    {
+                                        "id": "d",
+                                        "text": "It reduces energy costs"
+                                    }
+                                ],
+                                "correctOptionId": "b"
+                            }
+                        },
+                        {
+                            "id": "review-1-2",
+                            "order": 2,
+                            "title": "People and Pathogens",
+                            "content": {
+                                "type": "text",
+                                "body": "Staff are a common source of contamination. Both consistent handwashing and honest reporting of symptoms are about the same goal: keeping pathogens carried by people away from the food that guests eat."
+                            },
+                            "hint": "Both practices are about keeping pathogens that people carry away from food.",
+                            "question": {
+                                "type": "true_false",
+                                "prompt": "Reporting symptoms and washing hands properly both help reduce the spread of pathogens from staff to food.",
+                                "correctAnswer": true
+                            }
+                        },
+                        {
+                            "id": "review-1-3",
+                            "order": 3,
+                            "title": "Spotting a Hazardous Food",
+                            "content": {
+                                "type": "image",
+                                "imageUrl": "https://picsum.photos/seed/foodsafety-r1-3/600/400",
+                                "imageAlt": "An assortment of foods including cooked rice, honey, dry pasta, and table salt arranged for comparison."
+                            },
+                            "hint": "Cooked, moist, protein- or starch-rich foods are usually TCS.",
+                            "question": {
+                                "type": "multiple_choice",
+                                "prompt": "Which of these is the best example of a TCS food?",
+                                "options": [
+                                    {
+                                        "id": "a",
+                                        "text": "Cooked rice"
+                                    },
+                                    {
+                                        "id": "b",
+                                        "text": "Honey"
+                                    },
+                                    {
+                                        "id": "c",
+                                        "text": "Dry pasta"
+                                    },
+                                    {
+                                        "id": "d",
+                                        "text": "Table salt"
+                                    }
+                                ],
+                                "correctOptionId": "a"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "level-2",
+                "order": 2,
+                "title": "Safe Food Handling",
+                "description": "Day-to-day handling skills: preventing cross-contamination, cooking, cooling, reheating, and protecting ready-to-eat food.",
+                "lessons": [
+                    {
+                        "id": "lesson-2-1",
+                        "order": 1,
+                        "title": "Storage Order and Cross-Contamination",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-2-1/600/400",
+                            "imageAlt": "A cooler organized in shelves with ready-to-eat food on top and raw proteins arranged below by their minimum cooking temperature."
+                        },
+                        "hint": "Store items by minimum internal cooking temperature, with the highest-temperature items on the bottom.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "In a cooler, which item should be stored on the lowest shelf?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "Ready-to-eat salad"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "Raw whole-cut beef"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "Raw fish"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "Raw chicken"
+                                }
+                            ],
+                            "correctOptionId": "d"
+                        }
+                    },
+                    {
+                        "id": "lesson-2-2",
+                        "order": 2,
+                        "title": "Minimum Internal Cooking Temperatures",
+                        "content": {
+                            "type": "text",
+                            "body": "Different foods require different minimum internal cooking temperatures because they carry different levels of risk. Poultry, stuffing, and stuffed meats require the highest minimum: 165\u00b0F. Ground meats and injected meats require 155\u00b0F. Whole cuts of beef and pork, along with seafood, require 145\u00b0F. Always verify with a clean, calibrated thermometer placed in the thickest part of the food."
+                        },
+                        "hint": "Poultry needs the highest of the common minimum temperatures.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "What is the minimum internal cooking temperature for poultry?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "135\u00b0F"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "145\u00b0F"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "155\u00b0F"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "165\u00b0F"
+                                }
+                            ],
+                            "correctOptionId": "d"
+                        }
+                    },
+                    {
+                        "id": "lesson-2-3",
+                        "order": 3,
+                        "title": "Cooling Food Safely",
+                        "content": {
+                            "type": "text",
+                            "body": "Cooling is a high-risk step because food passes back through the danger zone. The FDA Food Code requires a two-stage method: cool hot food from 135\u00b0F to 70\u00b0F within 2 hours, then from 70\u00b0F to 41\u00b0F or below within an additional 4 hours, for a total of no more than 6 hours. The first stage is the most critical and must happen quickly using methods like ice baths, shallow pans, or blast chillers."
+                        },
+                        "hint": "The first stage is the faster, more critical one \u2014 it is shorter than the second stage.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "Using the two-stage cooling method, hot TCS food must be cooled from 135\u00b0F to 70\u00b0F within how many hours?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "1 hour"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "2 hours"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "4 hours"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "6 hours"
+                                }
+                            ],
+                            "correctOptionId": "b"
+                        }
+                    },
+                    {
+                        "id": "lesson-2-4",
+                        "order": 4,
+                        "title": "Handling Ready-to-Eat Food",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-2-4/600/400",
+                            "imageAlt": "A food handler using single-use gloves and tongs to plate a garnish without touching it directly."
+                        },
+                        "hint": "Even clean hands can transfer pathogens \u2014 a barrier is required for ready-to-eat items.",
+                        "question": {
+                            "type": "true_false",
+                            "prompt": "It is acceptable to handle ready-to-eat food, such as garnishes, with clean bare hands.",
+                            "correctAnswer": false
+                        }
+                    }
+                ],
+                "review": {
+                    "id": "review-2",
+                    "title": "Level 2 Review",
+                    "description": "A general recap of safe handling: storage, cooking risk, and time-temperature control.",
+                    "lessons": [
+                        {
+                            "id": "review-2-1",
+                            "order": 1,
+                            "title": "Storing Raw Proteins",
+                            "content": {
+                                "type": "image",
+                                "imageUrl": "https://picsum.photos/seed/foodsafety-r2-1/600/400",
+                                "imageAlt": "A refrigerator shelf with raw poultry positioned above containers of prepared salad."
+                            },
+                            "hint": "Think about which way drips fall inside a cooler.",
+                            "question": {
+                                "type": "true_false",
+                                "prompt": "Storing raw poultry above ready-to-eat foods is a safe practice.",
+                                "correctAnswer": false
+                            }
+                        },
+                        {
+                            "id": "review-2-2",
+                            "order": 2,
+                            "title": "Why Cooking Temperatures Differ",
+                            "content": {
+                                "type": "text",
+                                "body": "Foods are not all cooked to the same temperature. The differences exist because different foods carry different levels of pathogen risk, and higher-risk foods need more heat to be made safe."
+                            },
+                            "hint": "Higher-risk foods need more heat to become safe to eat.",
+                            "question": {
+                                "type": "multiple_choice",
+                                "prompt": "Why do different foods have different minimum internal cooking temperatures?",
+                                "options": [
+                                    {
+                                        "id": "a",
+                                        "text": "Only for improved taste"
+                                    },
+                                    {
+                                        "id": "b",
+                                        "text": "Different foods carry different pathogen risks"
+                                    },
+                                    {
+                                        "id": "c",
+                                        "text": "To use less cooking fuel"
+                                    },
+                                    {
+                                        "id": "d",
+                                        "text": "The temperatures are chosen at random"
+                                    }
+                                ],
+                                "correctOptionId": "b"
+                            }
+                        },
+                        {
+                            "id": "review-2-3",
+                            "order": 3,
+                            "title": "Cooling the Right Way",
+                            "content": {
+                                "type": "text",
+                                "body": "How food is cooled matters as much as how it is cooked. Leaving hot food to cool slowly at room temperature lets it sit in the danger zone for far too long, giving bacteria time to multiply."
+                            },
+                            "hint": "Slow cooling lets food linger in the danger zone.",
+                            "question": {
+                                "type": "true_false",
+                                "prompt": "Cooling food slowly at room temperature is the safest method.",
+                                "correctAnswer": false
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "level-3",
+                "order": 3,
+                "title": "Advanced Practices and Compliance",
+                "description": "Higher-level practices: sanitation, receiving and rotation, allergens, and equipment accuracy.",
+                "lessons": [
+                    {
+                        "id": "lesson-3-1",
+                        "order": 1,
+                        "title": "Cleaning vs. Sanitizing",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-3-1/600/400",
+                            "imageAlt": "A three-compartment sink labeled in sequence for washing, rinsing, and sanitizing dishes."
+                        },
+                        "hint": "You remove debris first and disinfect last.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "What is the correct order of steps in a three-compartment sink?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "Sanitize, wash, rinse"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "Wash, rinse, sanitize"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "Rinse, wash, sanitize"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "Wash, sanitize, rinse"
+                                }
+                            ],
+                            "correctOptionId": "b"
+                        }
+                    },
+                    {
+                        "id": "lesson-3-2",
+                        "order": 2,
+                        "title": "Date Marking and Rotation",
+                        "content": {
+                            "type": "text",
+                            "body": "Ready-to-eat TCS food that is prepared in-house and held for more than 24 hours must be date marked. When held at 41\u00b0F or below, it can be kept for a maximum of 7 days, counting the day of preparation as day 1; it must be discarded after that. Pairing date marking with FIFO (First In, First Out) rotation ensures older stock is used before newer stock."
+                        },
+                        "hint": "Count the prep day as day one and you have a full week.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "Ready-to-eat TCS food held at 41\u00b0F or below must be discarded after how many days, counting the prep day as day 1?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "3 days"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "5 days"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "7 days"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "14 days"
+                                }
+                            ],
+                            "correctOptionId": "c"
+                        }
+                    },
+                    {
+                        "id": "lesson-3-3",
+                        "order": 3,
+                        "title": "Major Food Allergens",
+                        "content": {
+                            "type": "text",
+                            "body": "Restaurants must be able to identify and communicate about the major food allergens. In the United States these include milk, eggs, fish, crustacean shellfish, tree nuts, peanuts, wheat, and soybeans. As of January 1, 2023, sesame was added as the ninth major allergen under the FASTER Act. Staff should be able to answer guest questions accurately and prevent allergen cross-contact during preparation and service."
+                        },
+                        "hint": "This seed-based allergen became the newest addition in 2023.",
+                        "question": {
+                            "type": "multiple_choice",
+                            "prompt": "Which ingredient was added as the ninth major US food allergen?",
+                            "options": [
+                                {
+                                    "id": "a",
+                                    "text": "Corn"
+                                },
+                                {
+                                    "id": "b",
+                                    "text": "Sesame"
+                                },
+                                {
+                                    "id": "c",
+                                    "text": "Gelatin"
+                                },
+                                {
+                                    "id": "d",
+                                    "text": "Mustard"
+                                }
+                            ],
+                            "correctOptionId": "b"
+                        }
+                    },
+                    {
+                        "id": "lesson-3-4",
+                        "order": 4,
+                        "title": "Calibrating a Thermometer",
+                        "content": {
+                            "type": "image",
+                            "imageUrl": "https://picsum.photos/seed/foodsafety-3-4/600/400",
+                            "imageAlt": "A probe thermometer placed in a glass of crushed ice and water for the ice-point calibration method."
+                        },
+                        "hint": "Water freezes at this temperature, which is the reference point for the ice method.",
+                        "question": {
+                            "type": "true_false",
+                            "prompt": "Using the ice-point method, a properly calibrated thermometer should read 32\u00b0F (0\u00b0C) in an ice-water bath.",
+                            "correctAnswer": true
+                        }
+                    }
+                ],
+                "review": {
+                    "id": "review-3",
+                    "title": "Level 3 Review",
+                    "description": "A general recap of advanced practices: sanitation, rotation, and allergen awareness.",
+                    "lessons": [
+                        {
+                            "id": "review-3-1",
+                            "order": 1,
+                            "title": "The Goal of Sanitizing",
+                            "content": {
+                                "type": "text",
+                                "body": "Cleaning and sanitizing are two different steps. Cleaning removes visible food and dirt from a surface. Sanitizing comes afterward and reduces the pathogens you cannot see down to safe levels."
+                            },
+                            "hint": "Cleaning removes dirt you can see; sanitizing targets what you can't.",
+                            "question": {
+                                "type": "multiple_choice",
+                                "prompt": "What is the purpose of sanitizing a surface?",
+                                "options": [
+                                    {
+                                        "id": "a",
+                                        "text": "To make the surface look shiny"
+                                    },
+                                    {
+                                        "id": "b",
+                                        "text": "To reduce pathogens to safe levels"
+                                    },
+                                    {
+                                        "id": "c",
+                                        "text": "To remove visible food debris"
+                                    },
+                                    {
+                                        "id": "d",
+                                        "text": "To dry the surface"
+                                    }
+                                ],
+                                "correctOptionId": "b"
+                            }
+                        },
+                        {
+                            "id": "review-3-2",
+                            "order": 2,
+                            "title": "Understanding FIFO",
+                            "content": {
+                                "type": "image",
+                                "imageUrl": "https://picsum.photos/seed/foodsafety-r3-2/600/400",
+                                "imageAlt": "Labeled and date-marked storage containers arranged on a shelf with the oldest items placed at the front."
+                            },
+                            "hint": "The name of the practice tells you the order to use stock.",
+                            "question": {
+                                "type": "true_false",
+                                "prompt": "FIFO (First In, First Out) means using the oldest stock before newer stock.",
+                                "correctAnswer": true
+                            }
+                        },
+                        {
+                            "id": "review-3-3",
+                            "order": 3,
+                            "title": "Taking Allergens Seriously",
+                            "content": {
+                                "type": "text",
+                                "body": "For a guest with a severe food allergy, even a trace amount of an allergen can trigger a dangerous reaction. This is why preventing allergen cross-contact and communicating accurately are so important."
+                            },
+                            "hint": "Even trace amounts can trigger a serious reaction.",
+                            "question": {
+                                "type": "true_false",
+                                "prompt": "A small amount of an allergen is harmless to a person with a severe food allergy.",
+                                "correctAnswer": false
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
