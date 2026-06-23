@@ -1,0 +1,181 @@
+{
+  "config": {
+    "trials": 200,
+    "dayCounts": [
+      7,
+      14,
+      21,
+      30
+    ],
+    "thresholds": {
+      "minAccuracy": 0.85,
+      "maxAaFailureRate": 0.05,
+      "minTopCohenD": 0.8
+    }
+  },
+  "results": [
+    {
+      "dayCount": 7,
+      "accuracy": 1,
+      "aaFailureRate": 0.005,
+      "featureEffectSizes": {
+        "lessonAbandonRate": 0.565,
+        "hintRate": 4.448,
+        "correctOnFirstTryRate": 5.249,
+        "medianAnswerLatencyMs": 6.591,
+        "medianContentDwellMs": 9.183,
+        "avgSessionDurationMs": 1.987,
+        "dailyEngagementRate": 1.003,
+        "directiveReviewCount": 6.479
+      },
+      "featureMeans": {
+        "experienced": {
+          "lessonAbandonRate": 0.047,
+          "hintRate": 0.057,
+          "correctOnFirstTryRate": 0.845,
+          "medianAnswerLatencyMs": 5034.983,
+          "medianContentDwellMs": 6297,
+          "avgSessionDurationMs": 197058.57,
+          "dailyEngagementRate": 0.204,
+          "directiveReviewCount": 2.575
+        },
+        "new": {
+          "lessonAbandonRate": 0.088,
+          "hintRate": 0.582,
+          "correctOnFirstTryRate": 0.202,
+          "medianAnswerLatencyMs": 19213.978,
+          "medianContentDwellMs": 39767.765,
+          "avgSessionDurationMs": 599605.03,
+          "dailyEngagementRate": 0.33,
+          "directiveReviewCount": 0
+        }
+      },
+      "topCohenD": 9.183,
+      "verdict": "PASS",
+      "failReasons": []
+    },
+    {
+      "dayCount": 14,
+      "accuracy": 1,
+      "aaFailureRate": 0.005,
+      "featureEffectSizes": {
+        "lessonAbandonRate": 0.564,
+        "hintRate": 4.46,
+        "correctOnFirstTryRate": 5.245,
+        "medianAnswerLatencyMs": 6.571,
+        "medianContentDwellMs": 9.221,
+        "avgSessionDurationMs": 1.988,
+        "dailyEngagementRate": 0.998,
+        "directiveReviewCount": 6.479
+      },
+      "featureMeans": {
+        "experienced": {
+          "lessonAbandonRate": 0.047,
+          "hintRate": 0.057,
+          "correctOnFirstTryRate": 0.845,
+          "medianAnswerLatencyMs": 5034.983,
+          "medianContentDwellMs": 6297,
+          "avgSessionDurationMs": 197058.57,
+          "dailyEngagementRate": 0.102,
+          "directiveReviewCount": 2.575
+        },
+        "new": {
+          "lessonAbandonRate": 0.088,
+          "hintRate": 0.582,
+          "correctOnFirstTryRate": 0.202,
+          "medianAnswerLatencyMs": 19200.78,
+          "medianContentDwellMs": 39789.208,
+          "avgSessionDurationMs": 599706.781,
+          "dailyEngagementRate": 0.166,
+          "directiveReviewCount": 0
+        }
+      },
+      "topCohenD": 9.221,
+      "verdict": "PASS",
+      "failReasons": []
+    },
+    {
+      "dayCount": 21,
+      "accuracy": 1,
+      "aaFailureRate": 0.005,
+      "featureEffectSizes": {
+        "lessonAbandonRate": 0.564,
+        "hintRate": 4.46,
+        "correctOnFirstTryRate": 5.245,
+        "medianAnswerLatencyMs": 6.571,
+        "medianContentDwellMs": 9.221,
+        "avgSessionDurationMs": 1.988,
+        "dailyEngagementRate": 0.998,
+        "directiveReviewCount": 6.479
+      },
+      "featureMeans": {
+        "experienced": {
+          "lessonAbandonRate": 0.047,
+          "hintRate": 0.057,
+          "correctOnFirstTryRate": 0.845,
+          "medianAnswerLatencyMs": 5034.983,
+          "medianContentDwellMs": 6297,
+          "avgSessionDurationMs": 197058.57,
+          "dailyEngagementRate": 0.068,
+          "directiveReviewCount": 2.575
+        },
+        "new": {
+          "lessonAbandonRate": 0.088,
+          "hintRate": 0.582,
+          "correctOnFirstTryRate": 0.202,
+          "medianAnswerLatencyMs": 19200.78,
+          "medianContentDwellMs": 39789.208,
+          "avgSessionDurationMs": 599706.781,
+          "dailyEngagementRate": 0.11,
+          "directiveReviewCount": 0
+        }
+      },
+      "topCohenD": 9.221,
+      "verdict": "PASS",
+      "failReasons": []
+    },
+    {
+      "dayCount": 30,
+      "accuracy": 1,
+      "aaFailureRate": 0.005,
+      "featureEffectSizes": {
+        "lessonAbandonRate": 0.564,
+        "hintRate": 4.46,
+        "correctOnFirstTryRate": 5.245,
+        "medianAnswerLatencyMs": 6.571,
+        "medianContentDwellMs": 9.221,
+        "avgSessionDurationMs": 1.988,
+        "dailyEngagementRate": 0.998,
+        "directiveReviewCount": 6.479
+      },
+      "featureMeans": {
+        "experienced": {
+          "lessonAbandonRate": 0.047,
+          "hintRate": 0.057,
+          "correctOnFirstTryRate": 0.845,
+          "medianAnswerLatencyMs": 5034.983,
+          "medianContentDwellMs": 6297,
+          "avgSessionDurationMs": 197058.57,
+          "dailyEngagementRate": 0.047,
+          "directiveReviewCount": 2.575
+        },
+        "new": {
+          "lessonAbandonRate": 0.088,
+          "hintRate": 0.582,
+          "correctOnFirstTryRate": 0.202,
+          "medianAnswerLatencyMs": 19200.78,
+          "medianContentDwellMs": 39789.208,
+          "avgSessionDurationMs": 599706.781,
+          "dailyEngagementRate": 0.077,
+          "directiveReviewCount": 0
+        }
+      },
+      "topCohenD": 9.221,
+      "verdict": "PASS",
+      "failReasons": []
+    }
+  ],
+  "overallVerdict": "PASS",
+  "overallFailReasons": [],
+  "generatedAt": "2026-06-16T00:00:00.000Z"
+}

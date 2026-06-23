@@ -9,7 +9,7 @@
  *   --days <n>          Days to simulate (default: 30)
  *   --start-date <d>    ISO 8601 start date, e.g. 2026-05-17 (default: 30 days before today)
  *   --out <dir>         Output directory (default: ./generated)
- *   --persona <id>      Run only this persona: experienced | new | disengaged
+ *   --persona <id>      Run only this persona: experienced | new
  *
  * Output files:
  *   <out>/<personaId>-seed-<seed>.json
@@ -76,7 +76,7 @@ function main(): void {
     : ALL_PERSONAS
 
   if (personas.length === 0) {
-    console.error(`Unknown persona "${personaFilter}". Valid values: experienced, new, disengaged`)
+    console.error(`Unknown persona "${personaFilter}". Valid values: experienced, new`)
     process.exit(1)
   }
 

@@ -39,6 +39,8 @@ interface SimState {
   activeDays: number
   totalSessions: number
   totalLessons: number
+  consecutiveCorrectInLevel: number
+  lessonsSkippedInLevel: number
   // Time
   wallClock: number
   lastOpenedAt: number | null
@@ -52,18 +54,13 @@ type WorkItem =
   | { kind: 'lesson'; levelId: string; lesson: CurriculumLesson }
   | { kind: 'review'; levelId: string; review: CurriculumLevelReview; regularLessonCount: number }
 
-function buildWorkQueue(persona: LearnerPersona, curriculum: Curriculum): WorkItem[] {
+function buildWorkQueue(_persona: LearnerPersona, curriculum: Curriculum): WorkItem[] {
   const queue: WorkItem[] = []
   for (const level of curriculum.levels) {
-    if (persona.coldStart.firstDirective === 'skip_to_level_quiz') {
-      // Experienced: skip regular lessons, go straight to level review
-      queue.push({ kind: 'review', levelId: level.id, review: level.review, regularLessonCount: level.lessons.length })
-    } else {
-      for (const lesson of level.lessons) {
-        queue.push({ kind: 'lesson', levelId: level.id, lesson })
-      }
-      queue.push({ kind: 'review', levelId: level.id, review: level.review, regularLessonCount: level.lessons.length })
+    for (const lesson of level.lessons) {
+      queue.push({ kind: 'lesson', levelId: level.id, lesson })
     }
+    queue.push({ kind: 'review', levelId: level.id, review: level.review, regularLessonCount: level.lessons.length })
   }
   return queue
 }
@@ -547,7 +544,7 @@ function simulateLesson(
   levelId: string,
   lesson: CurriculumLesson,
   prng: Prng,
-): { events: LearningEvent[]; completed: boolean } {
+): { events: LearningEvent[]; completed: boolean; wasCorrect: boolean } {
   const events: LearningEvent[] = []
   const bp = persona.behaviorProfile
   const lessonStartMs = state.wallClock
@@ -558,7 +555,7 @@ function simulateLesson(
   // Pre-content abandon (rare)
   if (prng.chance(bp.abandonRate * 0.2)) {
     events.push(makeLessonAbandoned(state, sessionId, lesson.id, levelId, state.wallClock - lessonStartMs, false))
-    return { events, completed: false }
+    return { events, completed: false, wasCorrect: false }
   }
 
   // Content dwell
@@ -569,7 +566,7 @@ function simulateLesson(
   // Post-content / pre-question abandon
   if (prng.chance(bp.abandonRate * 0.3)) {
     events.push(makeLessonAbandoned(state, sessionId, lesson.id, levelId, state.wallClock - lessonStartMs, false))
-    return { events, completed: false }
+    return { events, completed: false, wasCorrect: false }
   }
 
   const qFormat = lesson.question.type === 'multiple_choice' ? 'multiple_choice' : 'true_false'
@@ -587,7 +584,7 @@ function simulateLesson(
   // Post-question abandon
   if (prng.chance(bp.abandonRate * 0.5)) {
     events.push(makeLessonAbandoned(state, sessionId, lesson.id, levelId, state.wallClock - lessonStartMs, true))
-    return { events, completed: false }
+    return { events, completed: false, wasCorrect: false }
   }
 
   // Answer
@@ -612,7 +609,7 @@ function simulateLesson(
   const duration = state.wallClock - lessonStartMs
   events.push(makeLessonCompleted(state, sessionId, lesson.id, levelId, correct, duration, 1, didHint, isRevisit, points, mastery.score))
 
-  return { events, completed: true }
+  return { events, completed: true, wasCorrect: correct }
 }
 
 // ─── Level review simulation ──────────────────────────────────────────────────
@@ -700,11 +697,13 @@ function simulateSession(
       state.currentLevelId = item.levelId
       state.levelStartMs = state.wallClock
       state.lessonsCompletedInLevel = 0
+      state.consecutiveCorrectInLevel = 0
+      state.lessonsSkippedInLevel = 0
       events.push(makeLevelStarted(state, sessionId, item.levelId))
     }
 
     if (item.kind === 'lesson') {
-      const { events: lessonEvents, completed } = simulateLesson(
+      const { events: lessonEvents, completed, wasCorrect } = simulateLesson(
         persona, state, sessionId, item.levelId, item.lesson, prng,
       )
       events.push(...lessonEvents)
@@ -715,16 +714,34 @@ function simulateSession(
         state.lessonsCompletedInLevel++
         state.totalLessons++
         state.workQueueIndex++
+
+        // Track consecutive correct streak and skip to level review if threshold reached
+        const threshold = persona.behaviorProfile.skipToReviewAfterCorrect
+        if (wasCorrect && threshold !== null) {
+          state.consecutiveCorrectInLevel++
+          if (state.consecutiveCorrectInLevel >= threshold) {
+            // Skip remaining lessons in this level
+            while (
+              state.workQueueIndex < workQueue.length &&
+              workQueue[state.workQueueIndex].kind === 'lesson' &&
+              workQueue[state.workQueueIndex].levelId === state.currentLevelId
+            ) {
+              state.workQueueIndex++
+              state.lessonsSkippedInLevel++
+            }
+          }
+        } else if (!wasCorrect) {
+          state.consecutiveCorrectInLevel = 0
+        }
       } else {
         // Abandon ends the session
+        state.consecutiveCorrectInLevel = 0
         sessionAbandoned = true
         break
       }
     } else {
       // Review — always attempt, no mid-review abandon in B5
-      const triggeredBy = persona.coldStart.firstDirective === 'skip_to_level_quiz'
-        ? 'directive'
-        : 'level_completion'
+      const triggeredBy = state.lessonsSkippedInLevel > 0 ? 'directive' : 'level_completion'
 
       const { events: reviewEvents, passed } = simulateLevelReview(
         persona, state, sessionId, item.levelId, item.review, triggeredBy, prng,
@@ -734,10 +751,7 @@ function simulateSession(
       if (passed) lessonsCompleted++
 
       const levelDurationMs = state.wallClock - state.levelStartMs
-      const skipped = persona.coldStart.firstDirective === 'skip_to_level_quiz'
-        ? item.regularLessonCount
-        : 0
-      events.push(makeLevelCompleted(state, sessionId, item.levelId, computeOverallMastery(state), levelDurationMs, state.lessonsCompletedInLevel, skipped))
+      events.push(makeLevelCompleted(state, sessionId, item.levelId, computeOverallMastery(state), levelDurationMs, state.lessonsCompletedInLevel, state.lessonsSkippedInLevel))
 
       state.workQueueIndex++
     }
@@ -776,6 +790,8 @@ export function generateHistory(
     activeDays: 0,
     totalSessions: 0,
     totalLessons: 0,
+    consecutiveCorrectInLevel: 0,
+    lessonsSkippedInLevel: 0,
     wallClock: startTs,
     lastOpenedAt: null,
     globalSeq: 0,

@@ -8,7 +8,8 @@
     "start": "node dist/index.js",
     "seed": "tsx src/seed/index.ts",
     "simulate": "tsx src/simulation/run.ts",
-    "test": "tsx src/simulation/validate.test.ts",
+    "power": "tsx src/simulation/power.ts",
+    "test": "tsx src/simulation/validate.test.ts && tsx src/simulation/recover.test.ts && tsx src/simulation/power.test.ts",
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "postinstall": "prisma generate"

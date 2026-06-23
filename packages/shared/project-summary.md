@@ -63,8 +63,8 @@ The taxonomy point is load-bearing: the Brain plan warns that sequence and timin
 - ✅ **B4** event capture implementation.
 
 **Track C (Brain pre-user validation)** — fully independent of the Loop UI; needs only the concept model and taxonomy from Wave 0:
-- **B5 → B6 → B7** (a strict chain: generator, then harness/A/A, then pattern recovery).
-- **B8** power analysis.
+- ✅ **B5 → B6 → B7** (a strict chain: generator, then harness/A/A, then pattern recovery).
+- ✅ **B8** power analysis.
 - **B9** offline predictor on existing analytics.
 
 ### Wave 2 — Decision logic and integration (the join)
@@ -256,7 +256,7 @@ Mitigation: validation wins over production quality; scope is deliberately minim
 
 - Course: one simple, self-authored topic.
 - Lessons: 5–10 maximum.
-- Personas: three seeded learners (Experienced, New, Disengaged) — divergence driven by the brain.
+- Personas: three seeded learners (Experienced, New) — divergence driven by the brain.
 - Audience: internal leadership.
 - Core demonstration (loop-side): login and settings-based onboarding → render the brain's directive as teaching on flash cards → present questions (structured types) → emit events → display the brain's recommendation, updated mastery, and progress → show short-term (live) and long-term (simulated) profile evolution.
 
@@ -345,7 +345,7 @@ What synthetic and offline work *can* prove, solo and now:
 What it cannot do: tell you whether your assumptions about real learners are right (e.g., that struggling learners benefit from review rather than disengaging). Only real humans reveal that.
 
 ## Learner State (The Brain's Data)
-The brain maintains, per learner: stated preferences (captured at onboarding), observed behavior (derived from events), and mastery scores. Three seeded starting profiles (Experienced, New, Disengaged) act as cold-start stand-ins for the demo.
+The brain maintains, per learner: stated preferences (captured at onboarding), observed behavior (derived from events), and mastery scores. Three seeded starting profiles (Experienced, New) act as cold-start stand-ins for the demo.
 
 To be explicit: this state records what the learner has done, not a guess at how they "innately" learn.
 
@@ -383,7 +383,6 @@ A simple 0–100 score per concept, derived from correctness, consistency, and r
 Each persona is a seeded starting profile; the journey is produced live by the engine reacting to behavior, not by a script.
 - **Experienced:** high confidence, prior experience → initial assessment, skip known material, focus on weak areas.
 - **New:** no prior experience, low confidence → more guidance, additional examples, confidence-building feedback.
-- **Disengaged:** knows the material, frequently abandons → shorter sessions, faster interactions, reduced explanation length.
 
 The point of the demo is that the same content produces divergent paths that emerge from the engine reacting to behavior — not three pre-built replays.
 

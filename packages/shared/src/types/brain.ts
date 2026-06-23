@@ -66,8 +66,8 @@ export interface BrainFlags {
 
 // ─── Personas ─────────────────────────────────────────────────────────────────
 
-/** The three seeded cold-start personas used for demo and development */
-export type PersonaId = 'experienced' | 'new' | 'disengaged'
+/** The two seeded cold-start personas used for demo and development */
+export type PersonaId = 'experienced' | 'new'
 
 /**
  * Describes how a persona behaves during a session and across time.
@@ -93,6 +93,11 @@ export interface PersonaBehaviorProfile {
   dailyEngagementRate: number
   /** How quickly mastery scores climb per session */
   masteryGrowthRate: 'fast' | 'moderate' | 'slow' | 'stalled'
+  /**
+   * If set, skip to the level review after this many consecutive correct lesson
+   * completions within a level. null = never skip early.
+   */
+  skipToReviewAfterCorrect: number | null
 }
 
 export interface LearnerPersona {
